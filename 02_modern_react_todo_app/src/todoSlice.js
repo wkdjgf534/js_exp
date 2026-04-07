@@ -1,9 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const todosSlice = createSlice({
+export const todosSlice = createSlice({
   name: 'todos',
   initialState: {
-    value: [],
+    value: [{
+      text: 'Go to the Store',
+      isCompleted: true,
+    }, {
+      text: 'New Todo',
+      isCompleted: false,
+    }],
   },
   reducers: {
     createTodo: state => {
@@ -23,3 +29,5 @@ const todosSlice = createSlice({
     }
   }
 })
+
+export const { createTodo, markTodoAsCompleted, deleteTodo } = todosSlice.actions;
